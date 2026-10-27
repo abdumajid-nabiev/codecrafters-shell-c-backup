@@ -17,10 +17,11 @@ int main(void) {
 
         if (strcmp(input, "exit") == 0) {
             break;
-        }
-
+        } else if (strncmp(input, "echo ", 5) == 0) {
+          printf("%s\n", input + 5);
+        } else { 
         printf("%s: command not found\n", input);
-    }
-
+        }
+  }
     return 0;
 }
