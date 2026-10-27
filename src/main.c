@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(int argc, char *argv[]) {
-  // Flush after every printf
-  setbuf(stdout, NULL);
+int main(void) {
+    setbuf(stdout, NULL);
 
-  // TODO: Uncomment the code below to pass the first stage
-  // printf("$ ");
+    printf("$ ");
+    fflush(stdout);
 
-  return 0;
+    getchar();  // Wait for you to press Enter
+    return 0;
 }
