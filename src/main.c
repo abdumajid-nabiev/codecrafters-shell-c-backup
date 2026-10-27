@@ -18,6 +18,10 @@ int main(void) {
     input[strcspn(input,"\n")] = '\0';
   
     printf("%s: command not found\n", input);
+
+    if (strcmp(input, "exit") == 0) {
+    break;
+    }
   }
   return 0;
 }
