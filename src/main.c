@@ -3,7 +3,6 @@
 
 int main(void) {
     setbuf(stdout, NULL);
-
     char input[1024];
 
     while (1) {
@@ -18,10 +17,23 @@ int main(void) {
         if (strcmp(input, "exit") == 0) {
             break;
         } else if (strncmp(input, "echo ", 5) == 0) {
-          printf("%s\n", input + 5);
-        } else { 
-        printf("%s: command not found\n", input);
+            printf("%s\n", input + 5);
+
+        } else if (strncmp(input, "type ", 5) == 0) {
+            char *command = input + 5;
+
+            if (strcmp(command, "echo") == 0 ||
+                strcmp(command, "exit") == 0 ||
+                strcmp(command, "type") == 0) {
+                printf("%s is a shell builtin\n", command);
+            } else {
+                printf("%s: not found\n", command);
+            }
+
+        } else {
+            printf("%s: command not found\n", input);
         }
-  }
+    }
+
     return 0;
 }
